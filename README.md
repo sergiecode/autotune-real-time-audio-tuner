@@ -353,11 +353,6 @@ We welcome contributions! Here's how to get started:
 - Update documentation for API changes
 - Ensure cross-platform compatibility
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact & Support
 
 **Created by Sergie Code** - Software Engineer & YouTube Programming Educator
 

@@ -1,0 +1,216 @@
+# AutoTune Real-Time Audio Engine - .gitignore
+
+# Build directories
+build/
+Build/
+BUILD/
+out/
+bin/
+lib/
+libs/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Compiled Object files
+*.o
+*.obj
+*.lo
+*.slo
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.so.*
+*.dylib
+*.dll
+*.dll.a
+
+# Compiled Static libraries
+*.a
+*.la
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+autotune_example
+autotune_tests
+pyautotune*.so
+pyautotune*.pyd
+
+# Visual Studio / MSBuild
+.vs/
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.opendb
+x64/
+x86/
+Debug/
+Release/
+RelWithDebInfo/
+MinSizeRel/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# CLion
+.idea/
+cmake-build-*/
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+build/
+DerivedData/
+
+# Qt Creator
+*.pro.user
+*.pri
+
+# Code::Blocks
+*.cbp
+*.layout
+*.depend
+
+# Dev-C++
+*.dev
+
+# Eclipse CDT
+.metadata
+.cproject
+.project
+.settings/
+
+# Temporary files
+*~
+*.swp
+*.swo
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Python related (for bindings)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+venv/
+env/
+.env
+
+# Package managers
+conan/
+vcpkg_installed/
+packages/
+
+# Testing
+Testing/
+test_results/
+*.log
+*.xml
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# Documentation generated files
+doc/html/
+doc/latex/
+docs/_build/
+site/
+
+# Audio files (for testing)
+*.wav
+*.mp3
+*.flac
+*.aiff
+*.ogg
+*.m4a
+test_audio/
+audio_samples/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Profiling and debugging
+*.dSYM/
+*.map
+gmon.out
+cachegrind.out.*
+callgrind.out.*
+massif.out.*
+helgrind.out.*
+drd.out.*
+
+# Static analysis
+cppcheck-result.xml
+scan-build-*/
+
+# Performance testing results
+*.perf
+perf.data*
+
+# Custom configuration files (keep templates)
+config.local.*
+local_config.*
+.env.local
+
+# IDE workspace files
+*.workspace
+*.cbp
+*.layout
+
+# Dependency directories
+extern/*/
+!extern/pybind11/README.md
+!extern/README.md
+
+# Generated version files
+version.h
+build_info.h

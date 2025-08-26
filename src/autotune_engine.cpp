@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <iostream>
 
 namespace autotune {
 
@@ -9,11 +10,26 @@ AutotuneEngine::AutotuneEngine(SampleRate sample_rate, uint32_t buffer_size, Cha
     : sample_rate_(sample_rate), buffer_size_(buffer_size), channels_(channels),
       mode_(Mode::FULL_AUTOTUNE), initialized_(false), current_pitch_(0.0f),
       target_pitch_(0.0f), confidence_(0.0f), performance_counter_(0),
-      current_scale_(Quantizer::Scale::MAJOR), key_center_(60), tempo_(120.0f) {
+      current_scale_(Quantizer::Scale::MAJOR), key_center_(60), tempo_(120.0f)
+#ifdef ENABLE_ML_MODELS
+      , ml_processing_enabled_(false)
+#endif
+{
     
     // Initialize default parameters
     params_.sample_rate = sample_rate;
     params_.buffer_size = buffer_size;
+    
+#ifdef ENABLE_ML_MODELS
+    ml_model_loader_ = std::make_unique<MLModelLoader>();
+    
+    // Try to load default model if it exists
+    std::string default_model_path = "models/pitch_corrector.onnx";
+    if (ml_model_loader_->load_model(default_model_path)) {
+        ml_processing_enabled_ = true;
+        std::cout << "Default ML model loaded automatically" << std::endl;
+    }
+#endif
     
     initialized_ = initialize_components();
 }
@@ -44,15 +60,51 @@ ProcessingResult AutotuneEngine::process(const AudioFrame* input, AudioFrame* ou
     }
     
     // Process based on current mode
-    switch (mode_) {
-        case Mode::PITCH_CORRECTION:
-            result = process_pitch_correction(input, output, frame_count);
-            break;
-        case Mode::QUANTIZATION:
-            result = process_quantization(input, output, frame_count);
-            break;
-        case Mode::FULL_AUTOTUNE:
-            // First apply pitch correction, then quantization
+    // Try ML processing first if available and enabled
+#ifdef ENABLE_ML_MODELS
+    if (ml_processing_enabled_ && ml_model_loader_ && ml_model_loader_->is_model_loaded()) {
+        // Use ML processing for the first frame
+        if (frame_count > 0) {
+            AudioFrame& mutable_input = const_cast<AudioFrame&>(input[0]);
+            result = ml_model_loader_->process_with_ml(mutable_input, params_);
+            output[0] = mutable_input;
+            
+            // Process remaining frames with traditional method if needed
+            if (frame_count > 1) {
+                ProcessingResult traditional_result;
+                switch (mode_) {
+                    case Mode::PITCH_CORRECTION:
+                        traditional_result = process_pitch_correction(input + 1, output + 1, frame_count - 1);
+                        break;
+                    case Mode::QUANTIZATION:
+                        traditional_result = process_quantization(input + 1, output + 1, frame_count - 1);
+                        break;
+                    case Mode::FULL_AUTOTUNE:
+                        traditional_result = process_pitch_correction(input + 1, processing_buffer_.data() + 1, frame_count - 1);
+                        traditional_result = process_quantization(processing_buffer_.data() + 1, output + 1, frame_count - 1);
+                        break;
+                    case Mode::BYPASS:
+                        for (uint32_t i = 1; i < frame_count; ++i) {
+                            output[i] = input[i];
+                        }
+                        break;
+                }
+                // Combine results
+                result.processing_time_ms = (result.processing_time_ms + traditional_result.processing_time_ms) / 2.0f;
+            }
+        }
+    } else {
+#endif
+        // Traditional processing
+        switch (mode_) {
+            case Mode::PITCH_CORRECTION:
+                result = process_pitch_correction(input, output, frame_count);
+                break;
+            case Mode::QUANTIZATION:
+                result = process_quantization(input, output, frame_count);
+                break;
+            case Mode::FULL_AUTOTUNE:
+                // First apply pitch correction, then quantization
             result = process_pitch_correction(input, processing_buffer_.data(), frame_count);
             if (result.success) {
                 ProcessingResult quant_result = process_quantization(processing_buffer_.data(), output, frame_count);
@@ -66,7 +118,10 @@ ProcessingResult AutotuneEngine::process(const AudioFrame* input, AudioFrame* ou
             }
             result.success = true;
             break;
+        }
+#ifdef ENABLE_ML_MODELS
     }
+#endif
     
     auto end_time = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time);
@@ -289,6 +344,66 @@ float AutotuneEngine::calculate_target_pitch(float detected_pitch) {
     // Use quantizer to find target pitch
     return quantizer_->quantize_pitch(detected_pitch, current_scale_, key_center_, 
                                      params_.quantize_strength);
+}
+
+// ========== ML MODEL INTEGRATION METHODS ==========
+
+bool AutotuneEngine::load_ml_model(const std::string& model_path) {
+#ifdef ENABLE_ML_MODELS
+    if (!ml_model_loader_) {
+        ml_model_loader_ = std::make_unique<MLModelLoader>();
+    }
+    
+    bool success = ml_model_loader_->load_model(model_path);
+    if (success) {
+        ml_processing_enabled_ = true;
+        std::cout << "ML model loaded successfully: " << model_path << std::endl;
+    } else {
+        std::cerr << "Failed to load ML model: " << model_path << std::endl;
+    }
+    return success;
+#else
+    std::cout << "ML model support not enabled in this build" << std::endl;
+    return false;
+#endif
+}
+
+void AutotuneEngine::set_ml_processing_enabled(bool enabled) {
+#ifdef ENABLE_ML_MODELS
+    if (ml_model_loader_ && ml_model_loader_->is_model_loaded()) {
+        ml_processing_enabled_ = enabled;
+        std::cout << "ML processing " << (enabled ? "enabled" : "disabled") << std::endl;
+    } else {
+        ml_processing_enabled_ = false;
+        if (enabled) {
+            std::cout << "Cannot enable ML processing - no model loaded" << std::endl;
+        }
+    }
+#else
+    if (enabled) {
+        std::cout << "ML processing not available in this build" << std::endl;
+    }
+#endif
+}
+
+bool AutotuneEngine::is_ml_processing_enabled() const {
+#ifdef ENABLE_ML_MODELS
+    return ml_processing_enabled_ && ml_model_loader_ && ml_model_loader_->is_model_loaded();
+#else
+    return false;
+#endif
+}
+
+std::string AutotuneEngine::get_ml_model_info() const {
+#ifdef ENABLE_ML_MODELS
+    if (ml_model_loader_) {
+        return ml_model_loader_->get_model_info();
+    } else {
+        return "ML model loader not initialized";
+    }
+#else
+    return "ML model support not enabled in this build";
+#endif
 }
 
 } // namespace autotune

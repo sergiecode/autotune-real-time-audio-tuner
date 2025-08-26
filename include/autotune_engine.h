@@ -5,6 +5,7 @@
 #include "pitch_detector.h"
 #include "pitch_corrector.h"
 #include "quantizer.h"
+#include "ml_model_loader.h"
 #include <memory>
 #include <vector>
 
@@ -141,6 +142,33 @@ public:
      * @return Recommended buffer size
      */
     static uint32_t get_recommended_buffer_size(SampleRate sample_rate);
+    
+    // ========== ML MODEL INTEGRATION ==========
+    
+    /**
+     * @brief Load ML model for enhanced processing
+     * @param model_path Path to ONNX model file
+     * @return True if model loaded successfully
+     */
+    bool load_ml_model(const std::string& model_path);
+    
+    /**
+     * @brief Enable/disable ML processing
+     * @param enabled True to use ML models when available
+     */
+    void set_ml_processing_enabled(bool enabled);
+    
+    /**
+     * @brief Check if ML processing is available and enabled
+     * @return True if ML processing is active
+     */
+    bool is_ml_processing_enabled() const;
+    
+    /**
+     * @brief Get ML model information
+     * @return Model info string
+     */
+    std::string get_ml_model_info() const;
 
 private:
     // Core components
@@ -174,6 +202,12 @@ private:
     Quantizer::Scale current_scale_;
     int key_center_;
     float tempo_;
+    
+    // ML model integration
+#ifdef ENABLE_ML_MODELS
+    std::unique_ptr<MLModelLoader> ml_model_loader_;
+    bool ml_processing_enabled_;
+#endif
     
     /**
      * @brief Initialize all components

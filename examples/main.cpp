@@ -3,6 +3,11 @@
 #include <vector>
 #include <cmath>
 #include <iomanip>
+#include <chrono>
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 using namespace autotune;
 
@@ -265,6 +270,73 @@ void demo_realtime_simulation() {
     std::cout << "CPU usage: " << metrics.cpu_usage_percent << "%" << std::endl;
 }
 
+/**
+ * @brief Demonstrate ML model integration
+ */
+void demo_ml_integration() {
+    std::cout << "\n=== ML Model Integration Demo ===" << std::endl;
+    
+    // Create engine
+    AutotuneEngine engine(44100, 512, 1);
+    
+    std::cout << "ML model info: " << engine.get_ml_model_info() << std::endl;
+    
+    // Try to load ML model
+    bool ml_loaded = engine.load_ml_model("models/pitch_corrector.onnx");
+    if (ml_loaded) {
+        std::cout << "✅ ML model loaded successfully!" << std::endl;
+        engine.set_ml_processing_enabled(true);
+        
+        std::cout << "ML processing enabled: " << (engine.is_ml_processing_enabled() ? "Yes" : "No") << std::endl;
+        std::cout << "Updated model info: " << engine.get_ml_model_info() << std::endl;
+        
+        // Generate test audio (slightly off-pitch)
+        auto test_samples = generate_sine_wave(439.2f, 44100, 0.1f); // Slightly flat A
+        auto test_frames = mono_to_stereo_frames(test_samples);
+        
+        std::cout << "\nProcessing with ML model..." << std::endl;
+        
+        // Process a few frames
+        for (int i = 0; i < 5 && i < static_cast<int>(test_frames.size()); ++i) {
+            AudioFrame output(1);
+            auto start = std::chrono::high_resolution_clock::now();
+            ProcessingResult result = engine.process_frame(test_frames[i], output);
+            auto end = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+            float time_ms = duration.count() / 1000.0f;
+            
+            std::cout << "Frame " << i << ": " << std::fixed << std::setprecision(3)
+                      << time_ms << "ms, confidence: " << result.confidence 
+                      << " (ML enhanced)" << std::endl;
+        }
+        
+        // Compare performance with traditional processing
+        engine.set_ml_processing_enabled(false);
+        std::cout << "\nComparing with traditional processing..." << std::endl;
+        
+        for (int i = 0; i < 5 && i < static_cast<int>(test_frames.size()); ++i) {
+            AudioFrame output(1);
+            auto start = std::chrono::high_resolution_clock::now();
+            ProcessingResult result = engine.process_frame(test_frames[i], output);
+            auto end = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+            float time_ms = duration.count() / 1000.0f;
+            
+            std::cout << "Frame " << i << ": " << std::fixed << std::setprecision(3)
+                      << time_ms << "ms, confidence: " << result.confidence 
+                      << " (traditional)" << std::endl;
+        }
+        
+    } else {
+        std::cout << "ℹ️ No ML model found - using traditional processing" << std::endl;
+        std::cout << "To enable ML processing:" << std::endl;
+        std::cout << "1. Train a model using autotune-audio-ml-trainer" << std::endl;
+        std::cout << "2. Export to ONNX format" << std::endl;
+        std::cout << "3. Copy to models/pitch_corrector.onnx" << std::endl;
+        std::cout << "4. Rebuild with ONNX Runtime support" << std::endl;
+    }
+}
+
 int main() {
     std::cout << "AutoTune Real-Time Audio Engine Demo" << std::endl;
     std::cout << "====================================" << std::endl;
@@ -276,13 +348,14 @@ int main() {
         demo_pitch_correction();
         demo_scales_and_modes();
         demo_realtime_simulation();
+        demo_ml_integration();
         
         std::cout << "\n=== Demo Complete ===" << std::endl;
         std::cout << "All demos completed successfully!" << std::endl;
         std::cout << "\nNext steps:" << std::endl;
         std::cout << "1. Integrate with real audio I/O (ASIO, JACK, etc.)" << std::endl;
-        std::cout << "2. Add Python bindings for ML integration" << std::endl;
-        std::cout << "3. Create ML training pipeline" << std::endl;
+        std::cout << "2. Train ML models using autotune-audio-ml-trainer" << std::endl;
+        std::cout << "3. Deploy ONNX models to models/ directory" << std::endl;
         std::cout << "4. Build GUI interface" << std::endl;
         
     } catch (const std::exception& e) {

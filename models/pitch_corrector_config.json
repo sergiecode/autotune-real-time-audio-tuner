@@ -1,0 +1,23 @@
+{
+  "model_name": "pitch_corrector_demo",
+  "model_type": "pitch_correction",
+  "version": "1.0.0",
+  "input_size": 512,
+  "sample_rate": 44100,
+  "expected_latency_ms": 1.0,
+  "model_parameters": {
+    "hidden_size": 128,
+    "num_layers": 2,
+    "total_parameters": 153572
+  },
+  "training_info": {
+    "framework": "PyTorch",
+    "export_format": "ONNX",
+    "opset_version": 11
+  },
+  "deployment_notes": [
+    "Model trained for real-time pitch correction",
+    "Compatible with autotune-real-time-audio-tuner",
+    "Fallback to traditional processing if model fails"
+  ]
+}

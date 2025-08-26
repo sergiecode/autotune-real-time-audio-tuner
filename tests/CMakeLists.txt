@@ -1,4 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
+project(AutotuneTests LANGUAGES CXX)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Find testing framework (we'll use simple assertions for this example)
 # In a real project, you'd want to use Google Test, Catch2, or similar

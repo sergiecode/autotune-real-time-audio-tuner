@@ -1,0 +1,897 @@
+{
+  "timestamp": "2025-08-26T05:08:10.507631",
+  "summary": {
+    "total_tests": 53,
+    "passed": 48,
+    "failed": 5,
+    "success_rate": 90.56603773584906
+  },
+  "categories": {
+    "API": {
+      "passed": 14,
+      "failed": 5,
+      "tests": [
+        {
+          "category": "API",
+          "test": "Class provides has implementation",
+          "passed": false,
+          "details": "No implementation found for provides",
+          "suggestion": "Add implementation for provides methods",
+          "timestamp": "2025-08-26T05:08:10.494801"
+        },
+        {
+          "category": "API",
+          "test": "Class AudioBuffer has implementation",
+          "passed": true,
+          "details": "No implementation found for AudioBuffer",
+          "suggestion": "Add implementation for AudioBuffer methods",
+          "timestamp": "2025-08-26T05:08:10.494801"
+        },
+        {
+          "category": "API",
+          "test": "audio_buffer.cpp includes its header",
+          "passed": true,
+          "details": "Implementation doesn't include audio_buffer.h",
+          "suggestion": "Add #include \"audio_buffer.h\" to src/audio_buffer.cpp",
+          "timestamp": "2025-08-26T05:08:10.494801"
+        },
+        {
+          "category": "API",
+          "test": "Class implements has implementation",
+          "passed": false,
+          "details": "No implementation found for implements",
+          "suggestion": "Add implementation for implements methods",
+          "timestamp": "2025-08-26T05:08:10.495801"
+        },
+        {
+          "category": "API",
+          "test": "Class PitchDetector has implementation",
+          "passed": true,
+          "details": "No implementation found for PitchDetector",
+          "suggestion": "Add implementation for PitchDetector methods",
+          "timestamp": "2025-08-26T05:08:10.495801"
+        },
+        {
+          "category": "API",
+          "test": "pitch_detector.cpp includes its header",
+          "passed": true,
+          "details": "Implementation doesn't include pitch_detector.h",
+          "suggestion": "Add #include \"pitch_detector.h\" to src/pitch_detector.cpp",
+          "timestamp": "2025-08-26T05:08:10.495801"
+        },
+        {
+          "category": "API",
+          "test": "Class implements has implementation",
+          "passed": false,
+          "details": "No implementation found for implements",
+          "suggestion": "Add implementation for implements methods",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "Class PitchCorrector has implementation",
+          "passed": true,
+          "details": "No implementation found for PitchCorrector",
+          "suggestion": "Add implementation for PitchCorrector methods",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "pitch_corrector.cpp includes its header",
+          "passed": true,
+          "details": "Implementation doesn't include pitch_corrector.h",
+          "suggestion": "Add #include \"pitch_corrector.h\" to src/pitch_corrector.cpp",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "Class provides has implementation",
+          "passed": false,
+          "details": "No implementation found for provides",
+          "suggestion": "Add implementation for provides methods",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "Class Quantizer has implementation",
+          "passed": true,
+          "details": "No implementation found for Quantizer",
+          "suggestion": "Add implementation for Quantizer methods",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "Class Scale has implementation",
+          "passed": true,
+          "details": "No implementation found for Scale",
+          "suggestion": "Add implementation for Scale methods",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "Class TimeSignature has implementation",
+          "passed": true,
+          "details": "No implementation found for TimeSignature",
+          "suggestion": "Add implementation for TimeSignature methods",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "Class GridResolution has implementation",
+          "passed": true,
+          "details": "No implementation found for GridResolution",
+          "suggestion": "Add implementation for GridResolution methods",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "quantizer.cpp includes its header",
+          "passed": true,
+          "details": "Implementation doesn't include quantizer.h",
+          "suggestion": "Add #include \"quantizer.h\" to src/quantizer.cpp",
+          "timestamp": "2025-08-26T05:08:10.496802"
+        },
+        {
+          "category": "API",
+          "test": "Class optimized has implementation",
+          "passed": false,
+          "details": "No implementation found for optimized",
+          "suggestion": "Add implementation for optimized methods",
+          "timestamp": "2025-08-26T05:08:10.498124"
+        },
+        {
+          "category": "API",
+          "test": "Class AutotuneEngine has implementation",
+          "passed": true,
+          "details": "No implementation found for AutotuneEngine",
+          "suggestion": "Add implementation for AutotuneEngine methods",
+          "timestamp": "2025-08-26T05:08:10.498124"
+        },
+        {
+          "category": "API",
+          "test": "Class Mode has implementation",
+          "passed": true,
+          "details": "No implementation found for Mode",
+          "suggestion": "Add implementation for Mode methods",
+          "timestamp": "2025-08-26T05:08:10.498124"
+        },
+        {
+          "category": "API",
+          "test": "autotune_engine.cpp includes its header",
+          "passed": true,
+          "details": "Implementation doesn't include autotune_engine.h",
+          "suggestion": "Add #include \"autotune_engine.h\" to src/autotune_engine.cpp",
+          "timestamp": "2025-08-26T05:08:10.498124"
+        }
+      ]
+    },
+    "Namespace": {
+      "passed": 11,
+      "failed": 0,
+      "tests": [
+        {
+          "category": "Namespace",
+          "test": "include/audio_types.h uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.499124"
+        },
+        {
+          "category": "Namespace",
+          "test": "include/audio_buffer.h uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.499124"
+        },
+        {
+          "category": "Namespace",
+          "test": "include/pitch_detector.h uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.499124"
+        },
+        {
+          "category": "Namespace",
+          "test": "include/pitch_corrector.h uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.499124"
+        },
+        {
+          "category": "Namespace",
+          "test": "include/quantizer.h uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.499124"
+        },
+        {
+          "category": "Namespace",
+          "test": "include/autotune_engine.h uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.499124"
+        },
+        {
+          "category": "Namespace",
+          "test": "src/audio_buffer.cpp uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.499124"
+        },
+        {
+          "category": "Namespace",
+          "test": "src/pitch_detector.cpp uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.500124"
+        },
+        {
+          "category": "Namespace",
+          "test": "src/pitch_corrector.cpp uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.500124"
+        },
+        {
+          "category": "Namespace",
+          "test": "src/quantizer.cpp uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.500124"
+        },
+        {
+          "category": "Namespace",
+          "test": "src/autotune_engine.cpp uses autotune namespace",
+          "passed": true,
+          "details": "File doesn't use autotune namespace",
+          "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+          "timestamp": "2025-08-26T05:08:10.500124"
+        }
+      ]
+    },
+    "Headers": {
+      "passed": 6,
+      "failed": 0,
+      "tests": [
+        {
+          "category": "Headers",
+          "test": "audio_types.h has include guard",
+          "passed": true,
+          "details": "No include guard found",
+          "suggestion": "Add '#pragma once' at the top of the header",
+          "timestamp": "2025-08-26T05:08:10.501124"
+        },
+        {
+          "category": "Headers",
+          "test": "audio_buffer.h has include guard",
+          "passed": true,
+          "details": "No include guard found",
+          "suggestion": "Add '#pragma once' at the top of the header",
+          "timestamp": "2025-08-26T05:08:10.501124"
+        },
+        {
+          "category": "Headers",
+          "test": "pitch_detector.h has include guard",
+          "passed": true,
+          "details": "No include guard found",
+          "suggestion": "Add '#pragma once' at the top of the header",
+          "timestamp": "2025-08-26T05:08:10.501124"
+        },
+        {
+          "category": "Headers",
+          "test": "pitch_corrector.h has include guard",
+          "passed": true,
+          "details": "No include guard found",
+          "suggestion": "Add '#pragma once' at the top of the header",
+          "timestamp": "2025-08-26T05:08:10.501124"
+        },
+        {
+          "category": "Headers",
+          "test": "quantizer.h has include guard",
+          "passed": true,
+          "details": "No include guard found",
+          "suggestion": "Add '#pragma once' at the top of the header",
+          "timestamp": "2025-08-26T05:08:10.502124"
+        },
+        {
+          "category": "Headers",
+          "test": "autotune_engine.h has include guard",
+          "passed": true,
+          "details": "No include guard found",
+          "suggestion": "Add '#pragma once' at the top of the header",
+          "timestamp": "2025-08-26T05:08:10.502124"
+        }
+      ]
+    },
+    "Example": {
+      "passed": 5,
+      "failed": 0,
+      "tests": [
+        {
+          "category": "Example",
+          "test": "Creates AutotuneEngine",
+          "passed": true,
+          "details": "Example doesn't create AutotuneEngine",
+          "suggestion": "Add AutotuneEngine instantiation",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "Example",
+          "test": "Demonstrates processing",
+          "passed": true,
+          "details": "Example doesn't show audio processing",
+          "suggestion": "Add process() method calls",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "Example",
+          "test": "Shows scale usage",
+          "passed": true,
+          "details": "Example doesn't demonstrate scales",
+          "suggestion": "Add scale configuration examples",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "Example",
+          "test": "Has output statements",
+          "passed": true,
+          "details": "Example doesn't print results",
+          "suggestion": "Add std::cout statements to show results",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "Example",
+          "test": "Has main function",
+          "passed": true,
+          "details": "No main function found",
+          "suggestion": "Add int main() function",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        }
+      ]
+    },
+    "CMake": {
+      "passed": 6,
+      "failed": 0,
+      "tests": [
+        {
+          "category": "CMake",
+          "test": "Has minimum version",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "CMake",
+          "test": "Has project declaration",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "CMake",
+          "test": "Sets C++ standard",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "CMake",
+          "test": "Creates library target",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.504129"
+        },
+        {
+          "category": "CMake",
+          "test": "Creates executable target",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.505125"
+        },
+        {
+          "category": "CMake",
+          "test": "Configures include directories",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.505125"
+        }
+      ]
+    },
+    "Docs": {
+      "passed": 6,
+      "failed": 0,
+      "tests": [
+        {
+          "category": "Docs",
+          "test": "Has clear title",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.505125"
+        },
+        {
+          "category": "Docs",
+          "test": "Describes features",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.505125"
+        },
+        {
+          "category": "Docs",
+          "test": "Has installation instructions",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.506628"
+        },
+        {
+          "category": "Docs",
+          "test": "Shows usage examples",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.506628"
+        },
+        {
+          "category": "Docs",
+          "test": "Documents API",
+          "passed": true,
+          "details": "",
+          "suggestion": "",
+          "timestamp": "2025-08-26T05:08:10.506628"
+        },
+        {
+          "category": "Docs",
+          "test": "Adequate length (1403 words)",
+          "passed": true,
+          "details": "Only 1403 words",
+          "suggestion": "Expand documentation to at least 500 words",
+          "timestamp": "2025-08-26T05:08:10.506628"
+        }
+      ]
+    }
+  },
+  "all_results": [
+    {
+      "category": "API",
+      "test": "Class provides has implementation",
+      "passed": false,
+      "details": "No implementation found for provides",
+      "suggestion": "Add implementation for provides methods",
+      "timestamp": "2025-08-26T05:08:10.494801"
+    },
+    {
+      "category": "API",
+      "test": "Class AudioBuffer has implementation",
+      "passed": true,
+      "details": "No implementation found for AudioBuffer",
+      "suggestion": "Add implementation for AudioBuffer methods",
+      "timestamp": "2025-08-26T05:08:10.494801"
+    },
+    {
+      "category": "API",
+      "test": "audio_buffer.cpp includes its header",
+      "passed": true,
+      "details": "Implementation doesn't include audio_buffer.h",
+      "suggestion": "Add #include \"audio_buffer.h\" to src/audio_buffer.cpp",
+      "timestamp": "2025-08-26T05:08:10.494801"
+    },
+    {
+      "category": "API",
+      "test": "Class implements has implementation",
+      "passed": false,
+      "details": "No implementation found for implements",
+      "suggestion": "Add implementation for implements methods",
+      "timestamp": "2025-08-26T05:08:10.495801"
+    },
+    {
+      "category": "API",
+      "test": "Class PitchDetector has implementation",
+      "passed": true,
+      "details": "No implementation found for PitchDetector",
+      "suggestion": "Add implementation for PitchDetector methods",
+      "timestamp": "2025-08-26T05:08:10.495801"
+    },
+    {
+      "category": "API",
+      "test": "pitch_detector.cpp includes its header",
+      "passed": true,
+      "details": "Implementation doesn't include pitch_detector.h",
+      "suggestion": "Add #include \"pitch_detector.h\" to src/pitch_detector.cpp",
+      "timestamp": "2025-08-26T05:08:10.495801"
+    },
+    {
+      "category": "API",
+      "test": "Class implements has implementation",
+      "passed": false,
+      "details": "No implementation found for implements",
+      "suggestion": "Add implementation for implements methods",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "Class PitchCorrector has implementation",
+      "passed": true,
+      "details": "No implementation found for PitchCorrector",
+      "suggestion": "Add implementation for PitchCorrector methods",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "pitch_corrector.cpp includes its header",
+      "passed": true,
+      "details": "Implementation doesn't include pitch_corrector.h",
+      "suggestion": "Add #include \"pitch_corrector.h\" to src/pitch_corrector.cpp",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "Class provides has implementation",
+      "passed": false,
+      "details": "No implementation found for provides",
+      "suggestion": "Add implementation for provides methods",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "Class Quantizer has implementation",
+      "passed": true,
+      "details": "No implementation found for Quantizer",
+      "suggestion": "Add implementation for Quantizer methods",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "Class Scale has implementation",
+      "passed": true,
+      "details": "No implementation found for Scale",
+      "suggestion": "Add implementation for Scale methods",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "Class TimeSignature has implementation",
+      "passed": true,
+      "details": "No implementation found for TimeSignature",
+      "suggestion": "Add implementation for TimeSignature methods",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "Class GridResolution has implementation",
+      "passed": true,
+      "details": "No implementation found for GridResolution",
+      "suggestion": "Add implementation for GridResolution methods",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "quantizer.cpp includes its header",
+      "passed": true,
+      "details": "Implementation doesn't include quantizer.h",
+      "suggestion": "Add #include \"quantizer.h\" to src/quantizer.cpp",
+      "timestamp": "2025-08-26T05:08:10.496802"
+    },
+    {
+      "category": "API",
+      "test": "Class optimized has implementation",
+      "passed": false,
+      "details": "No implementation found for optimized",
+      "suggestion": "Add implementation for optimized methods",
+      "timestamp": "2025-08-26T05:08:10.498124"
+    },
+    {
+      "category": "API",
+      "test": "Class AutotuneEngine has implementation",
+      "passed": true,
+      "details": "No implementation found for AutotuneEngine",
+      "suggestion": "Add implementation for AutotuneEngine methods",
+      "timestamp": "2025-08-26T05:08:10.498124"
+    },
+    {
+      "category": "API",
+      "test": "Class Mode has implementation",
+      "passed": true,
+      "details": "No implementation found for Mode",
+      "suggestion": "Add implementation for Mode methods",
+      "timestamp": "2025-08-26T05:08:10.498124"
+    },
+    {
+      "category": "API",
+      "test": "autotune_engine.cpp includes its header",
+      "passed": true,
+      "details": "Implementation doesn't include autotune_engine.h",
+      "suggestion": "Add #include \"autotune_engine.h\" to src/autotune_engine.cpp",
+      "timestamp": "2025-08-26T05:08:10.498124"
+    },
+    {
+      "category": "Namespace",
+      "test": "include/audio_types.h uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.499124"
+    },
+    {
+      "category": "Namespace",
+      "test": "include/audio_buffer.h uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.499124"
+    },
+    {
+      "category": "Namespace",
+      "test": "include/pitch_detector.h uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.499124"
+    },
+    {
+      "category": "Namespace",
+      "test": "include/pitch_corrector.h uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.499124"
+    },
+    {
+      "category": "Namespace",
+      "test": "include/quantizer.h uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.499124"
+    },
+    {
+      "category": "Namespace",
+      "test": "include/autotune_engine.h uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.499124"
+    },
+    {
+      "category": "Namespace",
+      "test": "src/audio_buffer.cpp uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.499124"
+    },
+    {
+      "category": "Namespace",
+      "test": "src/pitch_detector.cpp uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.500124"
+    },
+    {
+      "category": "Namespace",
+      "test": "src/pitch_corrector.cpp uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.500124"
+    },
+    {
+      "category": "Namespace",
+      "test": "src/quantizer.cpp uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.500124"
+    },
+    {
+      "category": "Namespace",
+      "test": "src/autotune_engine.cpp uses autotune namespace",
+      "passed": true,
+      "details": "File doesn't use autotune namespace",
+      "suggestion": "Add 'namespace autotune' or 'using namespace autotune'",
+      "timestamp": "2025-08-26T05:08:10.500124"
+    },
+    {
+      "category": "Headers",
+      "test": "audio_types.h has include guard",
+      "passed": true,
+      "details": "No include guard found",
+      "suggestion": "Add '#pragma once' at the top of the header",
+      "timestamp": "2025-08-26T05:08:10.501124"
+    },
+    {
+      "category": "Headers",
+      "test": "audio_buffer.h has include guard",
+      "passed": true,
+      "details": "No include guard found",
+      "suggestion": "Add '#pragma once' at the top of the header",
+      "timestamp": "2025-08-26T05:08:10.501124"
+    },
+    {
+      "category": "Headers",
+      "test": "pitch_detector.h has include guard",
+      "passed": true,
+      "details": "No include guard found",
+      "suggestion": "Add '#pragma once' at the top of the header",
+      "timestamp": "2025-08-26T05:08:10.501124"
+    },
+    {
+      "category": "Headers",
+      "test": "pitch_corrector.h has include guard",
+      "passed": true,
+      "details": "No include guard found",
+      "suggestion": "Add '#pragma once' at the top of the header",
+      "timestamp": "2025-08-26T05:08:10.501124"
+    },
+    {
+      "category": "Headers",
+      "test": "quantizer.h has include guard",
+      "passed": true,
+      "details": "No include guard found",
+      "suggestion": "Add '#pragma once' at the top of the header",
+      "timestamp": "2025-08-26T05:08:10.502124"
+    },
+    {
+      "category": "Headers",
+      "test": "autotune_engine.h has include guard",
+      "passed": true,
+      "details": "No include guard found",
+      "suggestion": "Add '#pragma once' at the top of the header",
+      "timestamp": "2025-08-26T05:08:10.502124"
+    },
+    {
+      "category": "Example",
+      "test": "Creates AutotuneEngine",
+      "passed": true,
+      "details": "Example doesn't create AutotuneEngine",
+      "suggestion": "Add AutotuneEngine instantiation",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "Example",
+      "test": "Demonstrates processing",
+      "passed": true,
+      "details": "Example doesn't show audio processing",
+      "suggestion": "Add process() method calls",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "Example",
+      "test": "Shows scale usage",
+      "passed": true,
+      "details": "Example doesn't demonstrate scales",
+      "suggestion": "Add scale configuration examples",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "Example",
+      "test": "Has output statements",
+      "passed": true,
+      "details": "Example doesn't print results",
+      "suggestion": "Add std::cout statements to show results",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "Example",
+      "test": "Has main function",
+      "passed": true,
+      "details": "No main function found",
+      "suggestion": "Add int main() function",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "CMake",
+      "test": "Has minimum version",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "CMake",
+      "test": "Has project declaration",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "CMake",
+      "test": "Sets C++ standard",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "CMake",
+      "test": "Creates library target",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.504129"
+    },
+    {
+      "category": "CMake",
+      "test": "Creates executable target",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.505125"
+    },
+    {
+      "category": "CMake",
+      "test": "Configures include directories",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.505125"
+    },
+    {
+      "category": "Docs",
+      "test": "Has clear title",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.505125"
+    },
+    {
+      "category": "Docs",
+      "test": "Describes features",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.505125"
+    },
+    {
+      "category": "Docs",
+      "test": "Has installation instructions",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.506628"
+    },
+    {
+      "category": "Docs",
+      "test": "Shows usage examples",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.506628"
+    },
+    {
+      "category": "Docs",
+      "test": "Documents API",
+      "passed": true,
+      "details": "",
+      "suggestion": "",
+      "timestamp": "2025-08-26T05:08:10.506628"
+    },
+    {
+      "category": "Docs",
+      "test": "Adequate length (1403 words)",
+      "passed": true,
+      "details": "Only 1403 words",
+      "suggestion": "Expand documentation to at least 500 words",
+      "timestamp": "2025-08-26T05:08:10.506628"
+    }
+  ]
+}
